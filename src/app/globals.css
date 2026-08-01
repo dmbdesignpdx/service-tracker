@@ -1,0 +1,72 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@theme inline {
+  --color-background: var(--color-taupe-50);
+  --color-foreground: var(--color-taupe-950);
+  --color-card: var(--color-white);
+  --color-card-foreground: var(--color-taupe-950);
+  --color-popover: var(--color-white);
+  --color-popover-foreground: var(--color-taupe-950);
+  --color-primary: var(--color-purple-700);
+  --color-primary-foreground: var(--color-purple-50);
+  --color-secondary: var(--color-zinc-100);
+  --color-secondary-foreground: var(--color-zinc-900);
+  --color-muted: var(--color-taupe-100);
+  --color-muted-foreground: var(--color-taupe-500);
+  --color-accent: var(--color-taupe-100);
+  --color-accent-foreground: var(--color-taupe-900);
+  --color-destructive: var(--color-red-600);
+  --color-border: var(--color-taupe-200);
+  --color-input: var(--color-taupe-200);
+  --color-ring: var(--color-taupe-400);
+  --color-chart-1: var(--color-sky-400);
+  --color-chart-2: var(--color-sky-500);
+  --color-chart-3: var(--color-sky-600);
+  --color-chart-4: var(--color-sky-700);
+  --color-chart-5: var(--color-sky-800);
+  --color-sidebar: var(--color-taupe-50);
+  --color-sidebar-foreground: var(--color-taupe-950);
+  --color-sidebar-primary: var(--color-purple-600);
+  --color-sidebar-primary-foreground: var(--color-purple-50);
+  --color-sidebar-accent: var(--color-taupe-100);
+  --color-sidebar-accent-foreground: var(--color-taupe-900);
+  --color-sidebar-border: var(--color-taupe-200);
+  --color-sidebar-ring: var(--color-taupe-400);
+  --color-good: var(--color-green-600);
+  --color-warning: var(--color-amber-600);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-sans);
+  --radius-sm: calc(var(--radius) * 0.6);
+  --radius-md: calc(var(--radius) * 0.8);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) * 1.4);
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+:root {
+  --radius: 0.45rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    color-scheme: light only;
+    font-size: 100%;
+  }
+  body {
+    @apply font-sans bg-background text-foreground antialiased text-lg;
+  }
+}
+
+@utility trim {
+  text-box: trim-both cap alphabetic;
+}
