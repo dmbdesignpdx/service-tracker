@@ -5,6 +5,7 @@ import type { PropsWithChildren } from "react";
 
 // Ours
 import "./globals.css";
+import { MetaData, Url } from "@/data/meta";
 import { cn } from "@/lib/utils";
 
 const geistSans = Geist({
@@ -24,8 +25,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Service Tracker",
-  description: "Track your progress with the number of services for the day.",
+  title: MetaData.TITLE,
+  description: MetaData.DESCRIPTION,
+  metadataBase: Url.BASE,
 };
 
 export default function RootLayout({ children }: PropsWithChildren) {
