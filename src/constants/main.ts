@@ -12,3 +12,9 @@ export const TimeAllotted = {
     return Math.floor(this.START * 0.1666);
   },
 };
+
+export enum TimeColor {
+  GOOD = "text-good",
+  WARN = "text-warning",
+  BAD = "text-destructive",
+}

@@ -5,7 +5,8 @@ import { useAtomValue } from "jotai";
 
 // Ours
 import { timeAtom } from "@/atoms";
-import { TimeAllotted } from "@/constants/main";
+import { TimeAllotted, TimeColor } from "@/constants/main";
+import { TestID } from "@/constants/tests";
 import { formatTime } from "@/lib/time";
 import { cn } from "@/lib/utils";
 
@@ -17,16 +18,19 @@ export function TimeDisplay() {
   function setStatusColor() {
     switch (true) {
       case time > TimeAllotted.WARN:
-        return "text-good";
+        return TimeColor.GOOD;
       case time > TimeAllotted.LATE:
-        return "text-warning";
+        return TimeColor.WARN;
       default:
-        return "text-destructive";
+        return TimeColor.BAD;
     }
   }
 
   return (
-    <p className={cn(setStatusColor(), "font-mono text-5xl font-semibold tabular-nums trim")}>
+    <p
+      className={cn(setStatusColor(), "font-mono text-5xl font-semibold tabular-nums trim")}
+      data-testid={TestID.TIMER}
+    >
       {hour}
       <span className="opacity-60">:</span>
       {minute}
