@@ -3,3 +3,7 @@ export const Copy = {
   GOAL: "Goal",
   PACE: "an hour",
 };
+
+export const Label = {
+  ADD: "Add Count",
+};
