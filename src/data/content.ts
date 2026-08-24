@@ -6,4 +6,6 @@ export const Copy = {
 
 export const Label = {
   ADD: "Add Count",
+  START: "Start",
+  END: "End",
 };

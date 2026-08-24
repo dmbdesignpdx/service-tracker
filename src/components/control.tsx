@@ -8,6 +8,7 @@ import { useRef } from "react";
 import { countAtom, runningAtom, timeAtom } from "@/atoms";
 import { Button } from "@/components/ui/button";
 import { SECOND, TimeAllotted } from "@/constants/main";
+import { Label } from "@/data/content";
 
 export function Control() {
   const setCount = useSetAtom(countAtom);
@@ -40,7 +41,7 @@ export function Control() {
       variant="secondary"
       size="lg"
     >
-      {isRunning ? "End" : "Start"}
+      {isRunning ? Label.END : Label.START}
     </Button>
   );
 }
