@@ -17,7 +17,15 @@
   },
   "files": {
     "ignoreUnknown": true,
-    "includes": ["**", "!node_modules", "!.next", "!dist", "!build", "!.sanity"]
+    "includes": [
+      "**",
+      "!node_modules",
+      "!.next",
+      "!dist",
+      "!build",
+      "!.sanity",
+      "!src/components/ui"
+    ]
   },
   "formatter": {
     "enabled": true,

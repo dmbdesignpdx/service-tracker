@@ -1,0 +1,5 @@
+bun run lint --fix
+bun test --changed
+echo ""
+echo "🚀 pre-commit checks completed successfully!"
+echo ""
