@@ -1,5 +1,5 @@
 // Ours
-import { Control } from "@/components/controls";
+import { Control } from "@/components/control";
 import { CountDisplay } from "@/components/count";
 import { FloatingActionButton } from "@/components/fab";
 import { TimeDisplay } from "@/components/time";
