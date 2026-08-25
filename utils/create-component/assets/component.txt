@@ -1,0 +1,5 @@
+"use client";
+
+export function #NAME#() {
+  return <#ELEM#>#NAME# Component</#ELEM#>;
+}

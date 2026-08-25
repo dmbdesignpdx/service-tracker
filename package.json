@@ -9,7 +9,8 @@
     "start": "next start",
     "lint": "biome check",
     "format": "biome format --write",
-    "prepare": "husky"
+    "prepare": "husky",
+    "comp": "bun -b run ./utils/create-component"
   },
   "dependencies": {
     "@base-ui/react": "^1.7.0",
@@ -36,6 +37,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19.2.5",
     "babel-plugin-react-compiler": "1.0.0",
+    "change-case": "^5.4.4",
     "husky": "^9.1.7",
     "tailwindcss": "^4",
     "typescript": "^5"

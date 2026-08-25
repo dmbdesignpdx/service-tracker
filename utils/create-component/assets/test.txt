@@ -1,0 +1,18 @@
+// Theirs
+import { describe, expect, test } from "bun:test";
+import { render, screen } from "@testing-library/react";
+
+// Ours
+import { #NAME# } from "@/components/#FILE#";
+
+const text = /#NAME# Component/i;
+
+describe("#NAME#", () => {
+  test("renders its default content and state", async () => {
+    render(<#NAME# />);
+
+    const component = await screen.findByText(text);
+
+    expect(component).toBeInTheDocument();
+  });
+});
