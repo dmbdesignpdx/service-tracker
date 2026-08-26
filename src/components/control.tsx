@@ -2,12 +2,13 @@
 
 // Theirs
 import { useAtom, useSetAtom } from "jotai";
+import { RESET } from "jotai/utils";
 import { useRef } from "react";
 
 // Ours
 import { countAtom, runningAtom, timeAtom } from "@/atoms";
 import { Button } from "@/components/ui/button";
-import { SECOND, TimeAllotted } from "@/constants/main";
+import { SECOND } from "@/constants/main";
 import { Label } from "@/data/content";
 
 export function Control() {
@@ -20,8 +21,8 @@ export function Control() {
     if (isRunning) {
       if (timer.current) clearTimeout(timer.current);
       setIsRunning(false);
-      setTime(TimeAllotted.START);
-      setCount(0);
+      setTime(RESET);
+      setCount(RESET);
     } else {
       timer.current = setInterval(() => {
         setTime(prev => {
