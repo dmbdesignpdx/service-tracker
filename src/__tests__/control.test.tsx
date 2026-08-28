@@ -6,13 +6,13 @@ import { createStore, Provider } from "jotai";
 
 // Ours
 import { runningAtom, timeAtom } from "@/atoms";
-import { Control } from "@/components/control";
+import { StartStopButton } from "@/components/control";
 import { HOUR, SECOND } from "@/constants/main";
 import { Label } from "@/data/content";
 
-describe("Control", () => {
+describe("StartStopButton", () => {
   test("renders its default content and state", async () => {
-    render(<Control />);
+    render(<StartStopButton />);
 
     await screen.findByRole("button", { name: Label.START });
   });
@@ -22,7 +22,7 @@ describe("Control", () => {
 
     render(
       <Provider store={store}>
-        <Control />
+        <StartStopButton />
       </Provider>,
     );
 

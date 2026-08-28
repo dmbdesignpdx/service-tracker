@@ -33,10 +33,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: PropsWithChildren) {
   return (
     <html
-      lang="en"
       className={cn(geistSans.variable, geistMono.variable)}
+      lang="en"
+      dir="ltr"
     >
-      <body>{children}</body>
+      <body>
+        <main className="grid place-items-center h-screen w-screen relative">{children}</main>
+      </body>
     </html>
   );
 }

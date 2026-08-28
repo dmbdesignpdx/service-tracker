@@ -2,7 +2,7 @@
 
 // Theirs
 import { useAtom } from "jotai";
-import { Settings as UISettings, X } from "lucide-react";
+import { Settings, X } from "lucide-react";
 import { useState } from "react";
 
 // Ours
@@ -29,7 +29,7 @@ function OpenButton() {
       variant="ghost"
       aria-label={Label.OPEN}
     >
-      <UISettings aria-hidden="true" />
+      <Settings aria-hidden="true" />
     </Button>
   );
 }
@@ -45,11 +45,11 @@ function CloseButton() {
   );
 }
 
-export function Settings() {
+export function UserSettings() {
   const [value, setValue] = useState("");
   const [goal, setGoal] = useAtom(goalAtom);
 
-  function saveGoal() {
+  function updateGoal() {
     if (value) {
       const num = Number(value);
 
@@ -84,7 +84,7 @@ export function Settings() {
         </div>
         <DrawerFooter>
           <Button
-            onClick={saveGoal}
+            onClick={updateGoal}
             type="button"
             disabled={!value.trim()}
           >

@@ -1,6 +1,6 @@
 export const MetaData = {
   TITLE: "Service Tracker",
-  DESCRIPTION: "A personal tool to help track of count and pace for meters serviced.",
+  DESCRIPTION: "A personal tool to help track the count and pace for meters serviced.",
   Author: {
     NAME: "Daniel Blake",
     EMAIL: "daniel@danielblake.dev",

@@ -11,7 +11,7 @@ import { Button } from "@/components/ui/button";
 import { SECOND } from "@/constants/main";
 import { Label } from "@/data/content";
 
-export function Control() {
+export function StartStopButton() {
   const setCount = useSetAtom(countAtom);
   const [isRunning, setIsRunning] = useAtom(runningAtom);
   const setTime = useSetAtom(timeAtom);

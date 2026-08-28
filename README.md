@@ -2,7 +2,7 @@
 
 ## Stack
 
-This project uses the following:
+This project uses:
 
 - [Next.js](https://nextjs.org)
 - [Tailwind](https://tailwindcss.com)
