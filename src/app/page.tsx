@@ -7,7 +7,7 @@ import { TimeDisplay } from "@/components/time";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center gap-8">
+    <div className="flex flex-col items-center gap-10">
       <UserSettings />
       <StartStopButton />
       <TimeDisplay />

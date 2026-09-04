@@ -5,13 +5,14 @@ interface TimeReturn {
 }
 
 export function formatTime(milliseconds: number): TimeReturn {
-  const hours = Math.floor(milliseconds / 3600);
-  const minutes = Math.floor((milliseconds % 3600) / 60);
-  const seconds = milliseconds % 60;
+  const seconds = Math.floor(milliseconds / 1000);
+  const h = Math.floor(seconds / 3600);
+  const mm = Math.floor((seconds % 3600) / 60);
+  const ss = seconds % 60;
 
   return {
-    hour: String(hours).padStart(1, "0"),
-    minute: String(minutes).padStart(2, "0"),
-    second: String(seconds).padStart(2, "0"),
+    hour: String(h).padStart(1, "0"),
+    minute: String(mm).padStart(2, "0"),
+    second: String(ss).padStart(2, "0"),
   };
 }

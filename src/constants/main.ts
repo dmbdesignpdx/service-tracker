@@ -1,6 +1,6 @@
 export const DEFAULT_GOAL = 120;
 export const SECOND = 1000;
-export const HOUR = 3600;
+export const HOUR = SECOND * 60 * 60;
 export const INIT_COUNT = 0;
 
 export const TimeAllotted = {

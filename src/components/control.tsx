@@ -1,38 +1,22 @@
 "use client";
 
 // Theirs
-import { useAtom, useSetAtom } from "jotai";
-import { RESET } from "jotai/utils";
-import { useRef } from "react";
+import { useAtomValue, useSetAtom } from "jotai";
 
 // Ours
-import { countAtom, runningAtom, timeAtom } from "@/atoms";
+import { controllerAtom, countdownEffectAtom, runningAtom } from "@/atoms";
 import { Button } from "@/components/ui/button";
-import { SECOND } from "@/constants/main";
 import { Label } from "@/data/content";
 
 export function StartStopButton() {
-  const setCount = useSetAtom(countAtom);
-  const [isRunning, setIsRunning] = useAtom(runningAtom);
-  const setTime = useSetAtom(timeAtom);
-  const timer = useRef<NodeJS.Timeout>(null);
+  const running: boolean = useAtomValue(runningAtom);
+  const dispatch = useSetAtom(controllerAtom);
+
+  useAtomValue(countdownEffectAtom);
 
   function toggleTimer() {
-    if (isRunning) {
-      if (timer.current) clearTimeout(timer.current);
-      setIsRunning(false);
-      setTime(RESET);
-      setCount(RESET);
-    } else {
-      timer.current = setInterval(() => {
-        setTime(prev => {
-          if (prev > 0) return prev - 1;
-          return prev;
-        });
-      }, SECOND);
-
-      setIsRunning(true);
-    }
+    if (running) dispatch("stop");
+    else dispatch("start");
   }
 
   return (
@@ -42,7 +26,7 @@ export function StartStopButton() {
       variant="secondary"
       size="lg"
     >
-      {isRunning ? Label.END : Label.START}
+      {running ? Label.END : Label.START}
     </Button>
   );
 }
