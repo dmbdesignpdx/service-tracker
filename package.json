@@ -1,7 +1,7 @@
 {
   "name": "service-tracker",
   "description": "A personal tool to help track of count and pace for meters serviced.",
-  "version": "0.3.1",
+  "version": "0.4.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
