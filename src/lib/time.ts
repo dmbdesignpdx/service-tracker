@@ -11,7 +11,7 @@ export function formatTime(milliseconds: number): TimeReturn {
   const ss = seconds % 60;
 
   return {
-    hour: String(h).padStart(1, "0"),
+    hour: String(h),
     minute: String(mm).padStart(2, "0"),
     second: String(ss).padStart(2, "0"),
   };

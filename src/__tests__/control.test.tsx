@@ -5,7 +5,7 @@ import user from "@testing-library/user-event";
 import { createStore, Provider } from "jotai";
 
 // Ours
-import { runningAtom, timeAtom } from "@/atoms";
+import { millisecondsAtom, runningAtom } from "@/atoms";
 import { StartStopButton } from "@/components/control";
 import { HOUR, SECOND } from "@/constants/main";
 import { Label } from "@/data/content";
@@ -31,7 +31,7 @@ describe("StartStopButton", () => {
     expect(button).not.toBeDisabled();
     expect(button).toHaveTextContent(Label.START);
     expect(store.get(runningAtom)).toBe(false);
-    expect(store.get(timeAtom)).toBe(HOUR);
+    expect(store.get(millisecondsAtom)).toBe(HOUR);
 
     await user.click(button);
 
@@ -40,7 +40,7 @@ describe("StartStopButton", () => {
 
     act(() => {
       setTimeout(() => {
-        expect(store.get(timeAtom)).toBeLessThan(HOUR);
+        expect(store.get(millisecondsAtom)).toBeLessThan(HOUR);
       }, SECOND);
     });
   });

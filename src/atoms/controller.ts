@@ -1,10 +1,11 @@
+// Theirs
 import { atom } from "jotai";
 import { RESET } from "jotai/utils";
+
+// Ours
 import { HOUR } from "@/constants/main";
-import { countAtom } from "./countAtom";
-import { diffAtom } from "./diffAtom";
-import { endAtom } from "./endAtom";
-import { runningAtom } from "./runningAtom";
+import { countAtom } from "./counter";
+import { millisecondsAtom, runningAtom, totalAtom } from "./timer";
 
 type ControllerAction = "start" | "stop" | "add";
 
@@ -12,21 +13,21 @@ export const controllerAtom = atom(null, (get, set, action: ControllerAction) =>
   switch (action) {
     case "start": {
       set(runningAtom, true);
-      set(endAtom, Date.now() + HOUR);
+      set(totalAtom, Date.now() + HOUR);
 
       break;
     }
     case "stop": {
       set(runningAtom, false);
-      set(diffAtom, RESET);
+      set(millisecondsAtom, RESET);
       set(countAtom, RESET);
 
       break;
     }
     case "add": {
-      const end: number = get(endAtom);
+      const total = get(totalAtom);
 
-      if (end) set(endAtom, end + HOUR);
+      set(totalAtom, total + HOUR);
 
       break;
     }

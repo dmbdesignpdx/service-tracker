@@ -4,10 +4,14 @@ import { act, render, screen } from "@testing-library/react";
 import { createStore, Provider } from "jotai";
 
 // Ours
-import { timeAtom } from "@/atoms";
+import { millisecondsAtom } from "@/atoms";
 import { TimeDisplay } from "@/components/time";
 import { TimeColor } from "@/constants/main";
 import { TestID } from "@/constants/tests";
+
+function minutes(value: number) {
+  return 1000 * 60 * value;
+}
 
 describe("TimeDisplay", () => {
   test("renders its content", async () => {
@@ -21,7 +25,7 @@ describe("TimeDisplay", () => {
   test("renders the time and its colors correctly", async () => {
     const store = createStore();
 
-    store.set(timeAtom, 1800);
+    store.set(millisecondsAtom, minutes(30));
 
     render(
       <Provider store={store}>
@@ -35,14 +39,14 @@ describe("TimeDisplay", () => {
     expect(time).toHaveClass(TimeColor.GOOD);
 
     act(() => {
-      store.set(timeAtom, 900);
+      store.set(millisecondsAtom, minutes(15));
     });
 
     expect(time).toHaveTextContent("0:15:00");
     expect(time).toHaveClass(TimeColor.WARN);
 
     act(() => {
-      store.set(timeAtom, 450);
+      store.set(millisecondsAtom, minutes(7.5));
     });
 
     expect(time).toHaveTextContent("0:07:30");

@@ -4,13 +4,13 @@
 import { useAtomValue } from "jotai";
 
 // Ours
-import { countAtom, goalAtom } from "@/atoms";
+import { countAtom, goalAtom, paceAtom } from "@/atoms";
 import { Copy } from "@/data/content";
 
 export function CountDisplay() {
-  const count: number = useAtomValue(countAtom);
-  const goal: number = useAtomValue(goalAtom);
-  const amount: number = Math.ceil(goal / 7.5);
+  const count = useAtomValue(countAtom);
+  const goal = useAtomValue(goalAtom);
+  const pace = useAtomValue(paceAtom);
 
   return (
     <>
@@ -23,7 +23,7 @@ export function CountDisplay() {
           {Copy.GOAL}: {goal}
         </p>
         <p>
-          ({amount} {Copy.PACE})
+          ({pace} {Copy.PACE})
         </p>
       </div>
     </>

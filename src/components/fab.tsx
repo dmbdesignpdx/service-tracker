@@ -18,9 +18,9 @@ export function FloatingActionButton() {
   function addCount() {
     setCount(state => {
       const nextState = state + 1;
-      const round = nextState % pace === 0;
+      const nextRound = nextState % pace === 0;
 
-      if (round) dispatch("add");
+      if (nextRound) dispatch("add");
 
       return nextState;
     });

@@ -1,18 +1,18 @@
 "use client";
 
 // Theirs
-import { useAtomValue, useSetAtom } from "jotai";
+import { useAtom, useAtomValue, useSetAtom } from "jotai";
 
 // Ours
-import { controllerAtom, countdownEffectAtom, runningAtom } from "@/atoms";
+import { controllerAtom, countdownEffect, runningAtom } from "@/atoms";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/data/content";
 
 export function StartStopButton() {
-  const running: boolean = useAtomValue(runningAtom);
+  const running = useAtomValue(runningAtom);
   const dispatch = useSetAtom(controllerAtom);
 
-  useAtomValue(countdownEffectAtom);
+  useAtom(countdownEffect);
 
   function toggleTimer() {
     if (running) dispatch("stop");

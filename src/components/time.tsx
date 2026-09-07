@@ -4,30 +4,18 @@
 import { useAtomValue } from "jotai";
 
 // Ours
-import { diffAtom, formatAtom } from "@/atoms";
-import { TimeAllotted, TimeColor } from "@/constants/main";
+import { timeAtom } from "@/atoms";
 import { TestID } from "@/constants/tests";
+import { setStatusColor } from "@/lib/status";
 import { cn } from "@/lib/utils";
 
 export function TimeDisplay() {
-  const diff = useAtomValue(diffAtom);
-  const { hour, minute, second } = useAtomValue(formatAtom);
-
-  function setStatusColor() {
-    switch (true) {
-      case diff > TimeAllotted.WARN:
-        return TimeColor.GOOD;
-      case diff > TimeAllotted.LATE:
-        return TimeColor.WARN;
-      default:
-        return TimeColor.BAD;
-    }
-  }
+  const { hour, minute, second, milliseconds } = useAtomValue(timeAtom);
 
   return (
     <p
       className={cn(
-        setStatusColor(),
+        setStatusColor(milliseconds),
         "contain-layout font-mono text-5xl font-semibold tabular-nums trim",
       )}
       data-testid={TestID.TIMER}
