@@ -2,12 +2,11 @@
 
 // Theirs
 import { useAtom } from "jotai";
-import { Settings, X } from "lucide-react";
-import { useState } from "react";
+import { type ChangeEvent, useState } from "react";
 
 // Ours
 import { goalAtom } from "@/atoms";
-import { Button } from "@/components/ui/button";
+import { CloseButton, OpenButton, SaveButton } from "@/components/buttons";
 import {
   Drawer,
   DrawerClose,
@@ -19,35 +18,16 @@ import {
 } from "@/components/ui/drawer";
 import { Field, FieldLabel } from "@/components/ui/field";
 import { Input } from "@/components/ui/input";
-import { Copy, Label } from "@/data/content";
-
-function OpenButton() {
-  return (
-    <Button
-      className="fixed top-8 right-8 z-10 rounded-full size-12"
-      type="button"
-      variant="ghost"
-      aria-label={Label.OPEN}
-    >
-      <Settings aria-hidden="true" />
-    </Button>
-  );
-}
-function CloseButton() {
-  return (
-    <Button
-      type="button"
-      variant="ghost"
-      aria-label={Label.CLOSE}
-    >
-      <X aria-hidden="true" />
-    </Button>
-  );
-}
+import { toast } from "@/components/ui/toast";
+import { Copy } from "@/data/content";
 
 export function UserSettings() {
   const [value, setValue] = useState("");
   const [goal, setGoal] = useAtom(goalAtom);
+
+  function updateValue(e: ChangeEvent<HTMLInputElement>) {
+    setValue(e.target.value);
+  }
 
   function updateGoal() {
     if (value) {
@@ -55,6 +35,12 @@ export function UserSettings() {
 
       if (num >= 100) setGoal(num);
       else setGoal(100);
+
+      toast.add({
+        type: "success",
+        title: "Goal updated!",
+        timeout: 4000,
+      });
 
       setValue("");
     }
@@ -78,18 +64,12 @@ export function UserSettings() {
               type="number"
               placeholder={String(goal)}
               value={value}
-              onChange={e => setValue(e.target.value)}
+              onChange={updateValue}
             />
           </Field>
         </div>
         <DrawerFooter>
-          <Button
-            onClick={updateGoal}
-            type="button"
-            disabled={!value.trim()}
-          >
-            {Label.SAVE}
-          </Button>
+          <DrawerClose render={SaveButton(updateGoal, value)} />
           <DrawerClose render={CloseButton()} />
         </DrawerFooter>
       </DrawerContent>

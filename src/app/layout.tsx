@@ -3,6 +3,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import type { PropsWithChildren } from "react";
 
+import { Toaster } from "@/components/ui/toast";
+
 // Ours
 import "./globals.css";
 import { MetaData, Url } from "@/data/meta";
@@ -39,6 +41,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
     >
       <body>
         <main className="grid place-items-center h-screen w-screen relative">{children}</main>
+        <Toaster />
       </body>
     </html>
   );

@@ -14,5 +14,5 @@ export const Label = {
   END: "End",
   SAVE: "Save Settings",
   OPEN: "Open Settings",
-  CLOSE: "Close Settings",
+  CLOSE: "Close",
 };
