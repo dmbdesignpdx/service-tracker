@@ -1,7 +1,7 @@
 {
   "name": "service-pacesetter",
   "description": "A personal tool to set the pace and track of count for meters serviced.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "scripts": {
     "dev": "next dev",
