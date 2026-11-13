@@ -1,6 +1,8 @@
 # Service Pacesetter
 
-Progressive Web Application
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b2c68102-6c18-478b-ba8b-0b83eb46debe/deploy-status)](https://app.netlify.com/projects/service-pacesetter/deploys)
+
+### Progressive Web Application
 
 A personal tool to set the pace and track the count of meters serviced. Start a one-hour countdown, tap to log each meter, and see at a glance whether you're keeping up with your daily goal.
 
