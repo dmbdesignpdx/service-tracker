@@ -1,6 +1,16 @@
 # Service Pacesetter
 
+Progressive Web Application
+
 A personal tool to set the pace and track the count of meters serviced. Start a one-hour countdown, tap to log each meter, and see at a glance whether you're keeping up with your daily goal.
+
+## The Problem
+
+At my previous job as a Leak Survey Technician, I was expected to service a set number of meters each day. I struggled to meet that expectation. It was hard to tell, in the middle of a shift, whether I was ahead of or behind where I needed to be, and I often only found out when it was too late to catch up.
+
+## Why It Was Needed
+
+I needed a simple way to stay on pace toward a projected daily goal of completed services. Service Pacesetter breaks the daily goal into an hourly pace, runs a countdown for each hour, and lets me log each meter with one tap. The timer's color shows at a glance whether I'm on track, so I can adjust during the day instead of at the end of it.
 
 ## Features
 
